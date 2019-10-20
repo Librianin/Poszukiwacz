@@ -192,6 +192,7 @@ Makefile: ../Szukajka/Szukajka.pro ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs
 		../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/qt_config.prf \
 		../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/toolchain.prf \
 		../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/default_pre.prf \
@@ -351,6 +352,7 @@ Makefile: ../Szukajka/Szukajka.pro ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/qt_config.prf:
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/toolchain.prf:
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/default_pre.prf:

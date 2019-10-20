@@ -18,6 +18,8 @@ public:
 private slots:
     void on_Przycisk_clicked();
 
+    void on_Lista_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
+    
 private:
     Ui::Szukajka *ui;
 };

@@ -51,7 +51,7 @@ OBJECTS       = debug/main.o \
 		debug/szukajka.o \
 		debug/moc_szukajka.o
 
-DIST          =  ..\Szukajka\szukajka.h ..\Szukajka\main.cpp \
+DIST          = produkty.txt ..\Szukajka\szukajka.h ..\Szukajka\main.cpp \
 		..\Szukajka\szukajka.cpp
 QMAKE_TARGET  = Szukajka
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -449,7 +449,64 @@ debug/szukajka.o: ../Szukajka/szukajka.cpp ../Szukajka/szukajka.h \
 		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qtabwidget.h \
 		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qicon.h \
-		ui_szukajka.h
+		ui_szukajka.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/QVariant \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QAction \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qaction.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qactiongroup.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QApplication \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qapplication.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/qcoreapplication.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/qeventloop.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qguiapplication.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qinputmethod.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QButtonGroup \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QGridLayout \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qgridlayout.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qlayout.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qboxlayout.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QHeaderView \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qheaderview.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qframe.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qstyleoption.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qvalidator.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/qregularexpression.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qslider.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qabstractslider.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qstyle.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qtabbar.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qrubberband.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QLabel \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qlabel.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QLineEdit \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qlineedit.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qtextcursor.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qtextformat.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qpen.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtGui/qtextoption.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QPushButton \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qpushbutton.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QTreeWidget \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qtreewidget.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qtreeview.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QVBoxLayout \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QWidget \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/QMessageBox \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qmessagebox.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtWidgets/qdialog.h \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/QFile \
+		../../../Programy/Qt/5.9.8/mingw53_32/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\szukajka.o ..\Szukajka\szukajka.cpp
 
 debug/moc_szukajka.o: debug/moc_szukajka.cpp 
