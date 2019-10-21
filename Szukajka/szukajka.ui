@@ -49,23 +49,68 @@
         </attribute>
         <column>
          <property name="text">
-          <string>Miasta</string>
+          <string>Produkty</string>
          </property>
         </column>
         <item>
          <property name="text">
-          <string>Wrocław</string>
+          <string>Spożywcze</string>
          </property>
+         <item>
+          <property name="text">
+           <string>Musztarda</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Makaron</string>
+          </property>
+         </item>
         </item>
         <item>
          <property name="text">
-          <string>Warszawa</string>
+          <string>RTV</string>
          </property>
+         <item>
+          <property name="text">
+           <string>Telewizor</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Radio</string>
+          </property>
+         </item>
         </item>
         <item>
          <property name="text">
-          <string>Tokio</string>
+          <string>AGD</string>
          </property>
+         <item>
+          <property name="text">
+           <string>Pralka</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Lodówka</string>
+          </property>
+         </item>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tekstylia</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Spodnie</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>T-shirt</string>
+          </property>
+         </item>
         </item>
        </widget>
       </item>

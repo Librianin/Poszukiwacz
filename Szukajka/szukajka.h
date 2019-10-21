@@ -18,6 +18,7 @@ public:
 private slots:
     void on_Przycisk_clicked();
 
+
 private:
     Ui::Szukajka *ui;
 };

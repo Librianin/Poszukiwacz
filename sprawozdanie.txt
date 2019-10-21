@@ -1,0 +1,2 @@
+- lista produktów w bazie danych, dynamiczne tworzenie drzewka
+- mapka 

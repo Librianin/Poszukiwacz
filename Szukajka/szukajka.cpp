@@ -28,13 +28,13 @@ void Szukajka::on_Przycisk_clicked(){
 
     QString tekst= ui->Tekst->text();
     QFile file("D:/produkty.txt");
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // metoda open w otwiera plik w trybie tylko do odczytu z zamianą znaków \r\n ma \n
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // otwieram plik
         QTextStream in(&file);
         //const QString data(file.readAll());
         bool found = false;
-        while(!in.atEnd()){
+        while(!in.atEnd()){  //przeszukuję w pętli
 //            QMessageBox:: information(this,"fsdf","przeczytalem");
-            QString current = in.readLine();
+            QString current = in.readLine();  //linia po linii
             if(current.compare(tekst) == 0) {
                 found = true;
                 break;
@@ -55,3 +55,4 @@ void Szukajka::on_Przycisk_clicked(){
     }
 
 }
+
