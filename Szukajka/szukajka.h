@@ -1,7 +1,11 @@
 #ifndef SZUKAJKA_H
 #define SZUKAJKA_H
 
+
 #include <QMainWindow>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Szukajka; }

@@ -12,7 +12,13 @@ Szukajka::Szukajka(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
+    mydb.setDatabaseName("D:/Programowanie/Projekt1/Produkty.db");
 
+    if(!mydb.open())
+        ui->label->setText("Failed");
+    else
+        ui->label->setText("Conected");
 }
 
 Szukajka::~Szukajka()

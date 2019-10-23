@@ -17,130 +17,156 @@
    <string>Szukajka</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="Wyszukaj">
-        <property name="mouseTracking">
-         <bool>false</bool>
-        </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>11</y>
+      <width>531</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="Tekst"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Przycisk">
+       <property name="text">
+        <string>Szukaj</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>[+]Status</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>11</y>
+      <width>202</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="Wyszukaj">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Wyszukaj:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="Lista">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="dragEnabled">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="headerCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="headerHighlightSections">
+        <bool>false</bool>
+       </attribute>
+       <column>
         <property name="text">
-         <string>Wyszukaj:</string>
+         <string>Produkty</string>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTreeWidget" name="Lista">
-        <property name="dragEnabled">
-         <bool>false</bool>
-        </property>
-        <attribute name="headerVisible">
-         <bool>false</bool>
-        </attribute>
-        <attribute name="headerCascadingSectionResizes">
-         <bool>false</bool>
-        </attribute>
-        <attribute name="headerHighlightSections">
-         <bool>false</bool>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Produkty</string>
-         </property>
-        </column>
-        <item>
-         <property name="text">
-          <string>Spożywcze</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Musztarda</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Makaron</string>
-          </property>
-         </item>
-        </item>
-        <item>
-         <property name="text">
-          <string>RTV</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Telewizor</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Radio</string>
-          </property>
-         </item>
-        </item>
-        <item>
-         <property name="text">
-          <string>AGD</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Pralka</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Lodówka</string>
-          </property>
-         </item>
-        </item>
-        <item>
-         <property name="text">
-          <string>Tekstylia</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Spodnie</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>T-shirt</string>
-          </property>
-         </item>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLineEdit" name="Tekst"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Przycisk">
+       </column>
+       <item>
         <property name="text">
-         <string>Szukaj</string>
+         <string>Spożywcze</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
+        <item>
+         <property name="text">
+          <string>Musztarda</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Makaron</string>
+         </property>
+        </item>
+       </item>
+       <item>
         <property name="text">
-         <string/>
+         <string>RTV</string>
         </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+        <item>
+         <property name="text">
+          <string>Telewizor</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Radio</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>AGD</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Pralka</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Lodówka</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tekstylia</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Spodnie</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>T-shirt</string>
+         </property>
+        </item>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources/>

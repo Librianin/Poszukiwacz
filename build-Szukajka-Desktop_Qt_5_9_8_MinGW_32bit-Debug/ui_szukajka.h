@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -29,14 +28,15 @@ class Ui_Szukajka
 {
 public:
     QWidget *centralwidget;
-    QGridLayout *gridLayout;
-    QVBoxLayout *verticalLayout;
-    QLabel *Wyszukaj;
-    QTreeWidget *Lista;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QLineEdit *Tekst;
     QPushButton *Przycisk;
     QLabel *label;
+    QWidget *layoutWidget1;
+    QVBoxLayout *verticalLayout;
+    QLabel *Wyszukaj;
+    QTreeWidget *Lista;
 
     void setupUi(QMainWindow *Szukajka)
     {
@@ -46,18 +46,43 @@ public:
         Szukajka->setMouseTracking(false);
         centralwidget = new QWidget(Szukajka);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        verticalLayout = new QVBoxLayout();
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(220, 11, 531, 551));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        Tekst = new QLineEdit(layoutWidget);
+        Tekst->setObjectName(QStringLiteral("Tekst"));
+
+        verticalLayout_2->addWidget(Tekst);
+
+        Przycisk = new QPushButton(layoutWidget);
+        Przycisk->setObjectName(QStringLiteral("Przycisk"));
+
+        verticalLayout_2->addWidget(Przycisk);
+
+        label = new QLabel(layoutWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setEnabled(true);
+
+        verticalLayout_2->addWidget(label);
+
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(11, 11, 202, 551));
+        verticalLayout = new QVBoxLayout(layoutWidget1);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        Wyszukaj = new QLabel(centralwidget);
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        Wyszukaj = new QLabel(layoutWidget1);
         Wyszukaj->setObjectName(QStringLiteral("Wyszukaj"));
+        Wyszukaj->setMaximumSize(QSize(200, 16777215));
         Wyszukaj->setMouseTracking(false);
         Wyszukaj->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         verticalLayout->addWidget(Wyszukaj);
 
-        Lista = new QTreeWidget(centralwidget);
+        Lista = new QTreeWidget(layoutWidget1);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem(Lista);
         new QTreeWidgetItem(__qtreewidgetitem);
         new QTreeWidgetItem(__qtreewidgetitem);
@@ -71,36 +96,13 @@ public:
         new QTreeWidgetItem(__qtreewidgetitem3);
         new QTreeWidgetItem(__qtreewidgetitem3);
         Lista->setObjectName(QStringLiteral("Lista"));
+        Lista->setMaximumSize(QSize(200, 16777215));
         Lista->setDragEnabled(false);
         Lista->header()->setVisible(false);
         Lista->header()->setCascadingSectionResizes(false);
         Lista->header()->setHighlightSections(false);
 
         verticalLayout->addWidget(Lista);
-
-
-        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        Tekst = new QLineEdit(centralwidget);
-        Tekst->setObjectName(QStringLiteral("Tekst"));
-
-        verticalLayout_2->addWidget(Tekst);
-
-        Przycisk = new QPushButton(centralwidget);
-        Przycisk->setObjectName(QStringLiteral("Przycisk"));
-
-        verticalLayout_2->addWidget(Przycisk);
-
-        label = new QLabel(centralwidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setEnabled(true);
-
-        verticalLayout_2->addWidget(label);
-
-
-        gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 1);
 
         Szukajka->setCentralWidget(centralwidget);
 
@@ -112,6 +114,8 @@ public:
     void retranslateUi(QMainWindow *Szukajka)
     {
         Szukajka->setWindowTitle(QApplication::translate("Szukajka", "Szukajka", Q_NULLPTR));
+        Przycisk->setText(QApplication::translate("Szukajka", "Szukaj", Q_NULLPTR));
+        label->setText(QApplication::translate("Szukajka", "[+]Status", Q_NULLPTR));
         Wyszukaj->setText(QApplication::translate("Szukajka", "Wyszukaj:", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem = Lista->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("Szukajka", "Produkty", Q_NULLPTR));
@@ -144,8 +148,6 @@ public:
         ___qtreewidgetitem12->setText(0, QApplication::translate("Szukajka", "T-shirt", Q_NULLPTR));
         Lista->setSortingEnabled(__sortingEnabled);
 
-        Przycisk->setText(QApplication::translate("Szukajka", "Szukaj", Q_NULLPTR));
-        label->setText(QString());
     } // retranslateUi
 
 };

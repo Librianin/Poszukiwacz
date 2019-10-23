@@ -219,6 +219,7 @@ Makefile: ../Szukajka/Szukajka.pro ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs
 		../../../Programy/Qt/5.9.8/mingw53_32/lib/qtmaind.prl \
 		../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Widgets.prl \
 		../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Gui.prl \
+		../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Sql.prl \
 		../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\Szukajka\Szukajka.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -379,6 +380,7 @@ Makefile: ../Szukajka/Szukajka.pro ../../../Programy/Qt/5.9.8/mingw53_32/mkspecs
 ../../../Programy/Qt/5.9.8/mingw53_32/lib/qtmaind.prl:
 ../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Widgets.prl:
 ../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Gui.prl:
+../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Sql.prl:
 ../../../Programy/Qt/5.9.8/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Szukajka\Szukajka.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
