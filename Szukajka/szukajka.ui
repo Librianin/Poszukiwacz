@@ -165,6 +165,19 @@
        </item>
       </widget>
      </item>
+     <item>
+      <widget class="QTreeView" name="treeView"/>
+     </item>
+     <item>
+      <widget class="QListView" name="cos"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Lista</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>

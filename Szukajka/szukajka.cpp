@@ -12,9 +12,8 @@ Szukajka::Szukajka(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
+    mydb=QSqlDatabase::addDatabase("QSQLITE");
     mydb.setDatabaseName("D:/Programowanie/Projekt1/Produkty.db");
-
     if(!mydb.open())
         ui->label->setText("Failed");
     else
@@ -62,3 +61,22 @@ void Szukajka::on_Przycisk_clicked(){
 
 }
 
+
+void Szukajka::on_pushButton_clicked()
+{
+    Szukajka conn;
+    QSqlQueryModel * modal=new QSqlQueryModel;
+
+    conn.connOpen();
+    QSqlQuery* qry=new QSqlQuery(conn.mydb);
+
+    qry-> prepare("select nazwa from Tekstylia");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->treeView->setModel(modal);
+
+    conn.connClose();
+    qDebug() <<(modal->rowCount());
+
+}

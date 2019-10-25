@@ -16,8 +16,10 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTreeView>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -37,6 +39,9 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *Wyszukaj;
     QTreeWidget *Lista;
+    QTreeView *treeView;
+    QListView *cos;
+    QPushButton *pushButton;
 
     void setupUi(QMainWindow *Szukajka)
     {
@@ -104,6 +109,21 @@ public:
 
         verticalLayout->addWidget(Lista);
 
+        treeView = new QTreeView(layoutWidget1);
+        treeView->setObjectName(QStringLiteral("treeView"));
+
+        verticalLayout->addWidget(treeView);
+
+        cos = new QListView(layoutWidget1);
+        cos->setObjectName(QStringLiteral("cos"));
+
+        verticalLayout->addWidget(cos);
+
+        pushButton = new QPushButton(layoutWidget1);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        verticalLayout->addWidget(pushButton);
+
         Szukajka->setCentralWidget(centralwidget);
 
         retranslateUi(Szukajka);
@@ -148,6 +168,7 @@ public:
         ___qtreewidgetitem12->setText(0, QApplication::translate("Szukajka", "T-shirt", Q_NULLPTR));
         Lista->setSortingEnabled(__sortingEnabled);
 
+        pushButton->setText(QApplication::translate("Szukajka", "Lista", Q_NULLPTR));
     } // retranslateUi
 
 };
