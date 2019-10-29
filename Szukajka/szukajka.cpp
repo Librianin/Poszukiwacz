@@ -18,6 +18,7 @@ Szukajka::Szukajka(QWidget *parent)
         ui->label->setText("Failed");
     else
         ui->label->setText("Conected");
+
 }
 
 Szukajka::~Szukajka()
@@ -65,18 +66,39 @@ void Szukajka::on_Przycisk_clicked(){
 void Szukajka::on_pushButton_clicked()
 {
     Szukajka conn;
-    QSqlQueryModel * modal=new QSqlQueryModel;
+
+
 
     conn.connOpen();
     QSqlQuery* qry=new QSqlQuery(conn.mydb);
-
-    qry-> prepare("select nazwa from Tekstylia");
-
+    qry->prepare("select id,nazwa from Kategorie");
     qry->exec();
-    modal->setQuery(*qry);
-    ui->treeView->setModel(modal);
+    while(qry->next()) {
+        QSqlRecord c = qry->record();
+        QSqlField f = c.field("nazwa");
+        QString nazwa = f.value().toString();
+        QTreeWidgetItem* item = new QTreeWidgetItem();
+        item->setText(0, nazwa);
+
+        QSqlQuery* qry2=new QSqlQuery(conn.mydb);
+        qry2->prepare("select nazwa from Produkty where Kategoria=" + qry->record().field("id").value().toString());
+        qry2->exec();
+        while(qry2->next()) {
+            QTreeWidgetItem* item2 = new QTreeWidgetItem();
+            item2->setText(0, qry2->record().field("nazwa").value().toString());
+            item->addChild(item2);
+        }
+
+        ui->Lista->addTopLevelItem(item);
+    }
+
+    //ui->Lista->selectedItems().front()->text(0);
+
+
 
     conn.connClose();
-    qDebug() <<(modal->rowCount());
+
+
+
 
 }
