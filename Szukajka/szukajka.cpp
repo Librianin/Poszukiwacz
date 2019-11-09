@@ -32,6 +32,48 @@ Szukajka::~Szukajka()
 
 void Szukajka::on_Przycisk_clicked(){
 
+        QString produkt;
+        produkt=ui->Tekst->text();
+        Szukajka conn;
+
+        conn.connOpen();
+        QSqlQuery* qry=new QSqlQuery(conn.mydb);
+        qry->prepare("select * from Produkty where nazwa='"+produkt+"'");
+
+    if (qry->exec())
+    {
+                 int count=0;
+                 while (qry->next()) {
+                 count++;
+                }
+                 if(count==1)
+                    ui->label->setText("mamy produkt");
+                 if(count<1)
+                    ui->label->setText("nie mamy produktu");
+                 if(count>1)
+                    ui->label->setText("nie mwiem");
+
+
+
+}
+    connClose();
+
+  /*  Szukajka conn;
+
+    conn.connOpen();
+    QSqlQuery* qry=new QSqlQuery(conn.mydb);
+    qry->prepare("select nazwa from Produkty");
+    qry->exec();
+    bool found = false;
+    QString tekst= ui->Tekst->text();
+    while(qry->next()) {
+        QString current = qry();
+        if(current.compare(tekst) == 0) {
+            found = true;
+            break;
+        }
+    }
+
     QString tekst= ui->Tekst->text();
     QFile file("D:/produkty.txt");
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // otwieram plik
@@ -59,7 +101,35 @@ void Szukajka::on_Przycisk_clicked(){
     else{
         QMessageBox:: information(this,"fsdf","nie działa");
     }
+/*
+    QString tekst= ui->Tekst->text();
+    QFile file("D:/produkty.txt");
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // otwieram plik
+        QTextStream in(&file);
+        //const QString data(file.readAll());
+        bool found = false;
+        while(!in.atEnd()){  //przeszukuję w pętli
+//            QMessageBox:: information(this,"fsdf","przeczytalem");
+            QString current = in.readLine();  //linia po linii
+            if(current.compare(tekst) == 0) {
+                found = true;
+                break;
+            }
+        }
+        file.close();
+        if(found) {
+            ui->label->setText("Mamy produkt!!!");
+        } else {
+            ui->label->setText("nie Mamy produktu!!!");
+        }
 
+
+
+    }
+    else{
+        QMessageBox:: information(this,"fsdf","nie działa");
+    }
+*/
 }
 
 
@@ -102,3 +172,8 @@ void Szukajka::on_pushButton_clicked()
 
 
 }
+
+//void Szukajka::on_Lista_itemActivated(QTreeWidgetItem *item, int column)
+//{
+  //  item->text(column)
+//}

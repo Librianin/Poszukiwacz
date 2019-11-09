@@ -47,6 +47,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    //void on_Lista_itemActivated(QTreeWidgetItem *item, int column);
+
 private:
     Ui::Szukajka *ui;
 };

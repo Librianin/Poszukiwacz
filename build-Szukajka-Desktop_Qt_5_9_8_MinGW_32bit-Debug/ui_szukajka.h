@@ -16,10 +16,8 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTreeView>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -34,26 +32,25 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLineEdit *Tekst;
     QPushButton *Przycisk;
+    QLabel *label_2;
     QLabel *label;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QLabel *Wyszukaj;
     QTreeWidget *Lista;
-    QTreeView *treeView;
-    QListView *cos;
     QPushButton *pushButton;
 
     void setupUi(QMainWindow *Szukajka)
     {
         if (Szukajka->objectName().isEmpty())
             Szukajka->setObjectName(QStringLiteral("Szukajka"));
-        Szukajka->resize(756, 568);
+        Szukajka->resize(771, 742);
         Szukajka->setMouseTracking(false);
         centralwidget = new QWidget(Szukajka);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(220, 11, 531, 551));
+        layoutWidget->setGeometry(QRect(220, 11, 531, 678));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -66,6 +63,12 @@ public:
         Przycisk->setObjectName(QStringLiteral("Przycisk"));
 
         verticalLayout_2->addWidget(Przycisk);
+
+        label_2 = new QLabel(layoutWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setPixmap(QPixmap(QString::fromUtf8("../mapka.png")));
+
+        verticalLayout_2->addWidget(label_2);
 
         label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
@@ -88,6 +91,9 @@ public:
         verticalLayout->addWidget(Wyszukaj);
 
         Lista = new QTreeWidget(layoutWidget1);
+        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
+        __qtreewidgetitem->setText(0, QStringLiteral("1"));
+        Lista->setHeaderItem(__qtreewidgetitem);
         Lista->setObjectName(QStringLiteral("Lista"));
         Lista->setMaximumSize(QSize(200, 16777215));
         Lista->setDragEnabled(false);
@@ -96,16 +102,6 @@ public:
         Lista->header()->setHighlightSections(false);
 
         verticalLayout->addWidget(Lista);
-
-        treeView = new QTreeView(layoutWidget1);
-        treeView->setObjectName(QStringLiteral("treeView"));
-
-        verticalLayout->addWidget(treeView);
-
-        cos = new QListView(layoutWidget1);
-        cos->setObjectName(QStringLiteral("cos"));
-
-        verticalLayout->addWidget(cos);
 
         pushButton = new QPushButton(layoutWidget1);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -123,6 +119,7 @@ public:
     {
         Szukajka->setWindowTitle(QApplication::translate("Szukajka", "Szukajka", Q_NULLPTR));
         Przycisk->setText(QApplication::translate("Szukajka", "Szukaj", Q_NULLPTR));
+        label_2->setText(QString());
         label->setText(QApplication::translate("Szukajka", "[+]Status", Q_NULLPTR));
         Wyszukaj->setText(QApplication::translate("Szukajka", "Wyszukaj:", Q_NULLPTR));
         pushButton->setText(QApplication::translate("Szukajka", "Lista", Q_NULLPTR));
