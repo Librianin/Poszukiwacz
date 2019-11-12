@@ -19,8 +19,6 @@ Szukajka::Szukajka(QWidget *parent)
     QPixmap pix;
     pix.load("D:/Programowanie/Projekt1/mapka.png");
 
-
-    //punkt.load("D:/Programowanie/Projekt1/punkt.png");
     scene= new QGraphicsScene(this);
     scene->addPixmap(QPixmap(pix));
     ui->grafika->setScene(scene);
@@ -51,8 +49,7 @@ Szukajka::~Szukajka()
 
 void Szukajka::on_Przycisk_clicked(){
 
-    //int x=100;
-    //int y=100;
+
 
     QBrush redBrush(Qt::red);
     QBrush blueBrush(Qt::blue);
@@ -73,11 +70,6 @@ void Szukajka::on_Przycisk_clicked(){
 
 
 
-        //QSqlQuery y;
-
-
-
-
 
     if (qry->exec())
     {
@@ -89,23 +81,19 @@ void Szukajka::on_Przycisk_clicked(){
             ui->grafika->setScene(scene);
             int x=qry->record().value(3).toInt();
             int y=qry->value(4).toInt();
-            rectangle = scene->addRect(x,y,20,20,blackpen,blueBrush);
+            rectangle = scene->addRect(x,y,16,16,blackpen,blueBrush);
+            QPixmap obraz;
+            obraz.load(qry->value(5).toString());
+            ui->label->setPixmap(obraz);
 }
 
-
+/*
               int count=0;
 
                  while (qry->next()) {
                  count++;
                 }
                  if(count==1){
-
-                    // QSqlQuery* x=new QSqlQuery(conn.mydb);
-                     //x->prepare("select x from Produkty where nazwa='"+produkt+"'");
-                     //QSqlRecord c = x->record();
-                     //QSqlField f = c.field("x");
-
-
 
                     ui->label->setText("mamy produkt");
 
@@ -115,83 +103,12 @@ void Szukajka::on_Przycisk_clicked(){
                  if(count>1)
                     ui->label->setText("nie mwiem");
 
-
+*/
 
 }
     connClose();
 
-  /*  Szukajka conn;
 
-    conn.connOpen();
-    QSqlQuery* qry=new QSqlQuery(conn.mydb);
-    qry->prepare("select nazwa from Produkty");
-    qry->exec();
-    bool found = false;
-    QString tekst= ui->Tekst->text();
-    while(qry->next()) {
-        QString current = qry();
-        if(current.compare(tekst) == 0) {
-            found = true;
-            break;
-        }
-    }
-
-    QString tekst= ui->Tekst->text();
-    QFile file("D:/produkty.txt");
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // otwieram plik
-        QTextStream in(&file);
-        //const QString data(file.readAll());
-        bool found = false;
-        while(!in.atEnd()){  //przeszukuję w pętli
-//            QMessageBox:: information(this,"fsdf","przeczytalem");
-            QString current = in.readLine();  //linia po linii
-            if(current.compare(tekst) == 0) {
-                found = true;
-                break;
-            }
-        }
-        file.close();
-        if(found) {
-            ui->label->setText("Mamy produkt!!!");
-        } else {
-            ui->label->setText("nie Mamy produktu!!!");
-        }
-
-
-
-    }
-    else{
-        QMessageBox:: information(this,"fsdf","nie działa");
-    }
-
-    QString tekst= ui->Tekst->text();
-    QFile file("D:/produkty.txt");
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // otwieram plik
-        QTextStream in(&file);
-        //const QString data(file.readAll());
-        bool found = false;
-        while(!in.atEnd()){  //przeszukuję w pętli
-//            QMessageBox:: information(this,"fsdf","przeczytalem");
-            QString current = in.readLine();  //linia po linii
-            if(current.compare(tekst) == 0) {
-                found = true;
-                break;
-            }
-        }
-        file.close();
-        if(found) {
-            ui->label->setText("Mamy produkt!!!");
-        } else {
-            ui->label->setText("nie Mamy produktu!!!");
-        }
-
-
-
-    }
-    else{
-        QMessageBox:: information(this,"fsdf","nie działa");
-    }
-*/
 }
 
 
@@ -238,8 +155,46 @@ void Szukajka::on_pushButton_clicked()
 
 }
 
-//void Szukajka::on_Lista_itemActivated(QTreeWidgetItem *item, int column)
-//{
-  //  item->text(column)
-//}
+
+//item->text(column);
+
+void Szukajka::on_Lista_activated(const QModelIndex &index)
+{
+    QBrush redBrush(Qt::red);
+    QBrush blueBrush(Qt::blue);
+    QPen blackpen(Qt::black);
+    blackpen.setWidth(1);
+    //ellipse = scene->addEllipse(10,10,100,100,blackpen,redBrush);
+
+
+        QString produkt=ui->Lista->model()->data(index).toString();
+
+        Szukajka conn;
+
+        conn.connOpen();
+        QSqlQuery* qry=new QSqlQuery(conn.mydb);
+        qry->prepare("select * from Produkty where nazwa='"+produkt+"'");
+
+
+    if (qry->exec())
+    {
+        while (qry->next()) {
+            QPixmap pix;
+            pix.load("D:/Programowanie/Projekt1/mapka.png");
+            scene= new QGraphicsScene(this);
+            scene->addPixmap(QPixmap(pix));
+            ui->grafika->setScene(scene);
+            int x=qry->record().value(3).toInt();
+            int y=qry->value(4).toInt();
+            rectangle = scene->addRect(x,y,16,16,blackpen,blueBrush);
+}
+
+
+
+
+
+}
+    connClose();
+
+}
 

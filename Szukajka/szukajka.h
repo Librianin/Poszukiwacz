@@ -7,6 +7,7 @@
 #include <QtDebug>
 #include <QFileInfo>
 #include <QGraphicsScene>
+#include <QTreeWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Szukajka; }
@@ -52,9 +53,7 @@ private slots:
     void on_pushButton_clicked();
 
 
-    //void on_Lista_itemActivated(QTreeWidgetItem *item, int column);
-
-
+    void on_Lista_activated(const QModelIndex &index);
 
 private:
     Ui::Szukajka *ui;
