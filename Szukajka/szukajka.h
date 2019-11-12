@@ -6,6 +6,7 @@
 #include <QtSql>
 #include <QtDebug>
 #include <QFileInfo>
+#include <QGraphicsScene>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Szukajka; }
@@ -37,9 +38,12 @@ public:
             }
     }
 
+
 public:
     Szukajka(QWidget *parent = nullptr);
     ~Szukajka();
+
+
 
 private slots:
     void on_Przycisk_clicked();
@@ -47,9 +51,16 @@ private slots:
 
     void on_pushButton_clicked();
 
+
     //void on_Lista_itemActivated(QTreeWidgetItem *item, int column);
+
+
 
 private:
     Ui::Szukajka *ui;
+    QGraphicsScene *scene;
+    QGraphicsEllipseItem *ellipse;
+    QGraphicsRectItem *rectangle;
+    QGraphicsItem *item;
 };
 #endif // SZUKAJKA_H

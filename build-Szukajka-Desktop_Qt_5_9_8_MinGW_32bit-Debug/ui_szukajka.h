@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -32,6 +33,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLineEdit *Tekst;
     QPushButton *Przycisk;
+    QGraphicsView *grafika;
     QLabel *label_2;
     QLabel *label;
     QWidget *layoutWidget1;
@@ -50,7 +52,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(220, 11, 531, 678));
+        layoutWidget->setGeometry(QRect(220, 11, 531, 701));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -64,9 +66,14 @@ public:
 
         verticalLayout_2->addWidget(Przycisk);
 
+        grafika = new QGraphicsView(layoutWidget);
+        grafika->setObjectName(QStringLiteral("grafika"));
+
+        verticalLayout_2->addWidget(grafika);
+
         label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setPixmap(QPixmap(QString::fromUtf8("../mapka.png")));
+        label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_2);
 

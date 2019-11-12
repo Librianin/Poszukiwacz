@@ -3,6 +3,10 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QPicture>
+#include <QPainter>
+#include <QGraphicsScene>
+#include <QString>
 
 
 
@@ -12,12 +16,27 @@ Szukajka::Szukajka(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QPixmap pix;
+    pix.load("D:/Programowanie/Projekt1/mapka.png");
+
+
+    //punkt.load("D:/Programowanie/Projekt1/punkt.png");
+    scene= new QGraphicsScene(this);
+    scene->addPixmap(QPixmap(pix));
+    ui->grafika->setScene(scene);
+
+
+
+
+
     mydb=QSqlDatabase::addDatabase("QSQLITE");
     mydb.setDatabaseName("D:/Programowanie/Projekt1/Produkty.db");
     if(!mydb.open())
         ui->label->setText("Failed");
     else
         ui->label->setText("Conected");
+
+
 
 }
 
@@ -32,6 +51,17 @@ Szukajka::~Szukajka()
 
 void Szukajka::on_Przycisk_clicked(){
 
+    //int x=100;
+    //int y=100;
+
+    QBrush redBrush(Qt::red);
+    QBrush blueBrush(Qt::blue);
+    QPen blackpen(Qt::black);
+    blackpen.setWidth(1);
+    //ellipse = scene->addEllipse(10,10,100,100,blackpen,redBrush);
+
+
+
         QString produkt;
         produkt=ui->Tekst->text();
         Szukajka conn;
@@ -40,14 +70,46 @@ void Szukajka::on_Przycisk_clicked(){
         QSqlQuery* qry=new QSqlQuery(conn.mydb);
         qry->prepare("select * from Produkty where nazwa='"+produkt+"'");
 
+
+
+
+        //QSqlQuery y;
+
+
+
+
+
     if (qry->exec())
     {
-                 int count=0;
+        while (qry->next()) {
+            QPixmap pix;
+            pix.load("D:/Programowanie/Projekt1/mapka.png");
+            scene= new QGraphicsScene(this);
+            scene->addPixmap(QPixmap(pix));
+            ui->grafika->setScene(scene);
+            int x=qry->record().value(3).toInt();
+            int y=qry->value(4).toInt();
+            rectangle = scene->addRect(x,y,20,20,blackpen,blueBrush);
+}
+
+
+              int count=0;
+
                  while (qry->next()) {
                  count++;
                 }
-                 if(count==1)
+                 if(count==1){
+
+                    // QSqlQuery* x=new QSqlQuery(conn.mydb);
+                     //x->prepare("select x from Produkty where nazwa='"+produkt+"'");
+                     //QSqlRecord c = x->record();
+                     //QSqlField f = c.field("x");
+
+
+
                     ui->label->setText("mamy produkt");
+
+                 }
                  if(count<1)
                     ui->label->setText("nie mamy produktu");
                  if(count>1)
@@ -101,7 +163,7 @@ void Szukajka::on_Przycisk_clicked(){
     else{
         QMessageBox:: information(this,"fsdf","nie działa");
     }
-/*
+
     QString tekst= ui->Tekst->text();
     QFile file("D:/produkty.txt");
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){ // otwieram plik
@@ -135,6 +197,9 @@ void Szukajka::on_Przycisk_clicked(){
 
 void Szukajka::on_pushButton_clicked()
 {
+
+
+
     Szukajka conn;
 
 
@@ -177,3 +242,4 @@ void Szukajka::on_pushButton_clicked()
 //{
   //  item->text(column)
 //}
+

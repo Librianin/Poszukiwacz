@@ -23,7 +23,7 @@
       <x>220</x>
       <y>11</y>
       <width>531</width>
-      <height>678</height>
+      <height>701</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -38,12 +38,15 @@
       </widget>
      </item>
      <item>
+      <widget class="QGraphicsView" name="grafika"/>
+     </item>
+     <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string/>
        </property>
-       <property name="pixmap">
-        <pixmap>../mapka.png</pixmap>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
