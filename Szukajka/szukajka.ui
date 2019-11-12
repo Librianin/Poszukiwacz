@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>771</width>
-    <height>742</height>
+    <width>757</width>
+    <height>809</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -23,10 +23,13 @@
       <x>220</x>
       <y>11</y>
       <width>531</width>
-      <height>701</height>
+      <height>751</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
      <item>
       <widget class="QLineEdit" name="Tekst"/>
      </item>
@@ -39,16 +42,6 @@
      </item>
      <item>
       <widget class="QGraphicsView" name="grafika"/>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
      </item>
      <item>
       <widget class="QLabel" name="label">
@@ -68,7 +61,7 @@
       <x>11</x>
       <y>11</y>
       <width>202</width>
-      <height>551</height>
+      <height>751</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -120,6 +113,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="maximumSize">
+        <size>
+         <width>1</width>
+         <height>1</height>
+        </size>
+       </property>
        <property name="text">
         <string>Lista</string>
        </property>
